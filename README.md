@@ -1,5 +1,5 @@
 Personal Dashboard
-
+⛔️⚠️This repo was made because my other repo "personaldashboard"'s git got corrupt so I moved the files to this repo , if you are curious about the process of making this site and want to check out the commits go ahead and look at them on the other repo before ths git got corrupt for me⚠️⛔️
 A sleek, interactive personal dashboard web app designed to boost productivity and track daily goals. Features include a dynamic greeting, ambient clock, quote of the day, todo list, pomodoro timer, and productivity tips—all wrapped in a modern glassmorphic UI.
 
 Features

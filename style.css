@@ -1,4 +1,12 @@
-
+:root {
+    --bg-color: #121212;
+    --text-color: #fff;
+    --glass-bg: rgba(255,255,255,0.1);
+    --glass-border: rgba(255,255,255,0.3);
+}
+body {
+    
+}
 * {
     margin: 0;
     padding: 0;

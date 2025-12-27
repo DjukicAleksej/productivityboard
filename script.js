@@ -3,6 +3,14 @@ const greetingEl = document.querySelector("header h1");
 let words = ["Human" , "Scholar" , "Cool Person" , "Brochacho"];
 let index = 0;
 
+function changeGreeting(){
+    const current = words[index];
+    const next = words[(index+1)% words.length];
+
+    let i = current.length;
+    
+}
+
 
 //time
 function updateTime(){

@@ -23,15 +23,7 @@ function todayKey() {
 }
 
 function getCompletedTodosToday() {
-    const today = getToday();
-    const todos = document.querySelectorAll('.todo-item.done');
-    let count = 0;
-    todos.forEach(todo => {
-        if(todo.dataset.completedDate === today){
-            count++;
-        }
-    });
-    return count;
+    return document.querySelectorAll('.todo-item.done').length;
 }
 
 function getPomodorosToday(){
@@ -59,7 +51,7 @@ const goalStatus = document.getElementById("goalStatus");
 const saveGoalBtn = document.getElementById("saveGoalBtn");
 
 function loadDailyGoal() {
-    let data = JSON.parse(localStorage.getItem("daily-goal"));
+    let data = JSON.parse(localStorage.getItem("dailyGoal"));
     if(!data || data.date !== todayKey()){
         data = {
             date: todayKey(),
@@ -77,6 +69,7 @@ saveGoalBtn.addEventListener("click", () => {
     data.date = todayKey();
     data.completed = false;
     localStorage.setItem("dailyGoal", JSON.stringify(data));
+    tryCompleteDailyGoal();
     updateGoalStatus("pending");
 });
 function updateGoalStatus(status){
@@ -87,12 +80,15 @@ function updateGoalStatus(status){
         goalStatus.textContent ="⏳ Pending";
         goalStatus.style.color = "#fff";
     }
-    
 }
-
+function sd(){
+    sdadsd;
+}
 function tryCompleteDailyGoal(){
     const data = JSON.parse(localStorage.getItem("dailyGoal"));
     if(!data || data.completed) return;
+
+
     const todosDone = getCompletedTodosToday();
     const pomodorosDone = getPomodorosToday();
 
@@ -100,6 +96,8 @@ function tryCompleteDailyGoal(){
         data.completed = true;
         localStorage.setItem("dailyGoal", JSON.stringify(data));
         updateGoalStatus("completed");
+    } else {
+        updateGoalStatus("pending");
     }
 }
 //todo

@@ -284,6 +284,20 @@ header h1{
 .todo-item:hover {
     transform: translateY(-2px);
 }
+.glass-btn {
+    border-radius: 15px;
+    width: 100px;
+    height: 50px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+}
+.glass-btn:hover {
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 6px 40px rgba(0,0,0,0.2);
+}
 .todo-item span {
     cursor: pointer;
 }

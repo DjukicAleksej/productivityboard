@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="page">
+    <header>
+        <h1>Hello , Human!</h1>
+    </header>
+     <div class="ambient-time" id="time-card">
+        <nav class="time-nav">
+            <h2>
+                Current Time
+            </h2>
+            <p id="time"></p>
+            <p id="date"></p>
+        </nav>
+     </div>
+   
+        <section id="hero">
+            <h2>Quote of the Day</h2>
+            <p id="quote"></p>
+            <button id="next-quote">Next</button>
+            <div class="scroll-down" id="scroll-to-todos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                     fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"/>
+    </svg>
+            </div>
+        </section>
+        <section id="daily-goal" class="glass">
+            <h2>🎯 Today's Goal</h2>
+                <div class="goal-input">
+                    <input id="goalInput" type="text" placeholder="What's the ONE thing that matters today?" />
+                    <button id="saveGoalBtn">Set</button>
+                </div>
+                <p id="goalStatus">🕗 Not Completed</p>
+        </section>
+        
+        <section id="todos">
+            <div class="todo-glass"
+            <h2> 📝 TODO List - Focus Zone</h2>
+            <div class="todo-input-wrapper">
+            <input type="text" id="todo-input" placeholder="Add a task and press Enter">
+            </div>
+            <ul id="todo-list"></ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <h2>📊 Productivity Stats</h2>
+        <div class="stats-cards">
+            <div class="stat-card">
+                <!-- tasks done -->
+                 <p class="stat-number" id="done-count">0</p>
+                 <p class="stat-label">Tasks Done</p>
+            </div>
+            <div class="stat-card">
+                <!-- remaining -->
+                 <p class="stat-number" id="remaining-count">0</p>
+                 <p class="stat-label">Remaining</p>
+            </div>
+            <div class="stat-card">
+                <!-- streak -->
+                 <p class="stat-number" id="streak-count">0</p>
+                 <p class="stat-label">Day Streak</p>
+            </div>
+        </div>
+    </section>
+    <section id="pomodoro">
+        <h1>
+            Pomodoro Timer
+        </h1>
+            <div class="pomodoro-main">
+                <div class="timer-circle" id="timer">
+                    15:00
+                </div>
+                <div class="control-buttons">
+                    <button id="pause-btn">
+                        Pause
+                    </button>
+                    <button id="restart-btn">
+                        Restart
+                    </button>
+                    <button id="choose-btn">
+                        Choose Time
+                    </button>
+                </div>
+            </div>
+    </section> 
+    <section id="tips">
+        <h2> 💡 Productivity Tips</h2>
+        <div class="tips-cards">
+            <div class="tip-card">Start with the most important task.</div>
+           <div class="tip-card">Break work into small,25-minute sprints.</div>
+            <div class="tip-card">Take a short walk after finishing a big task.</div>
+        </div>
+    </section>
+       
+    
+     <footer>
+            <p>Built with ❤️ by Aleksej Djukic</p>
+    </footer>
+    <script src="script.js"></script>
+ </div>
+</body>
+</html>

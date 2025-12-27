@@ -1,0 +1,491 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #e5e7eb;
+    overflow-x: hidden;
+}
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#hero,#todos {
+    flex-shrink: 0;
+}
+
+
+header {
+    padding: 40px 8vw;
+    animation: fadeDown 0.8s ease forwards;
+}
+header h1{
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+.ambient-time {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    text-align: right;
+    opacity: 0.22;
+    pointer-events: none;
+    animation: timeFloat 4s ease-in-out infinite alternate;
+    opacity: 0.95;
+    z-index: 999;
+}
+
+.time-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+.time-nav h2 {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 4px;
+}
+.time-nav p {
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.ambient-time h2 {
+    display: none; 
+}
+
+#time {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+#date {
+
+    font-size: 2rem;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+#hero {
+    position: relative;
+    min-height: 80vh;
+    padding: 80px 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+#hero h2 {
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+#quote {
+    font-size: clamp(2.5rem, 5vw , 4.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    max-width: 900px;
+    animation: quoteEnter 3s ease forwards;
+}
+
+#hero button {
+    width: fit-content;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg,#e5e7eb,#c7d2fe);
+    color: #020617;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#hero button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(199, 210, 254, 0.35);
+}
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+    cursor: pointer;
+    animation: bounce 1.8s infinite;
+    transition: opacity 0.25s ease,transform 0.25s ease;
+}
+.scroll-down:hover {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.15);
+}
+
+@keyframes bounce {
+    0%,100%{
+        transform: translate(-50%,0);
+    }
+    50% {
+        transform: translate(-50%,8px);
+    }
+}
+#daily-goal {
+    max-width: 480px;
+    margin: 3rem auto;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+#daily-goal h2{
+    margin-bottom: 1rem;
+}
+.goal-input {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.goal-input input {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.goal-input button {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+#goalStatus {
+    margin-top: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+#todos {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 200px;
+    padding-bottom: 80px;
+  
+}
+.todo-glass {
+    width: 100%;
+    max-width: 600px;
+    padding: 36px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+
+    text-align: center;
+}
+.todo-glass::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.25)
+        rgba(255,255,255,0.05)
+    );
+    opacity: 0.4;
+    pointer-events: none;
+}
+#todos h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease forwards;
+}
+.pulse {
+    animation: pulse 0.3s ease;
+}
+.todo-input-wrapper {
+    margin-bottom: 30px;
+}
+
+#todo-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    outline: none;
+    font-size: 14px;
+    transition: border 0.25s ease, background 0.25s ease;
+}
+#todo-input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+#todo-input:focus {
+    border-color: #c7d2fe;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#todo-list {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    transition: transform 0.2s,opacity 0.2s;
+    animation: todoIn 0.35s ease forwards;
+}
+.todo-item:hover {
+    transform: translateY(-2px);
+}
+.todo-item span {
+    cursor: pointer;
+}
+
+.todo-item.done span {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.todo-actions button {
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease,background 0.2s ease;
+}
+.todo-actions button:hover{
+    transform: scale(1.05);
+}
+.edit-btn {
+    background: #4ade80;
+    color: #064e3b;
+    font-weight: 600;
+}
+.delete-btn {
+    background: #ef4444;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+#stats {
+    padding: 80px 8vw;
+    background: linear-gradient(to bottom,#020617ee,#020617);
+}
+#stats h2{
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+.stats-cards{
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.stat-card {
+    flex: 1 1 180px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease , box-shadow 0.25s ease;
+}
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+#pomodoro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.pomodoro-main{
+    margin-top: 100px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.25);
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+
+    padding: 25px;
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pomodoro-main:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+.timer-circle {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
+    font-size: 2rem;
+    border: 8px solid #3498db;
+}
+.control-buttons {
+    margin-top: 75px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.control-buttons button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.control-buttons button:hover {
+    background-color: #266094;
+    transition: background-color 0.3s;
+}
+#tips {
+    padding: 80px 8vw;
+}
+#tips h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+.tips-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.tip-card{
+    flex: 1 1 220px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    color: #fff;
+    font-size: 1rem;
+    transition: transform 0.25s ease,box-shadow 0.25s ease;
+}
+.tip-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+footer{
+    margin-top: auto;
+    padding: 40px 8vw;
+    text-align: center;
+    color: #aaa;
+    opacity: 0.9;
+    font-size: 0.9rem;
+    animation: fadeUp 2s ease forwards;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px);}
+    to{opacity: 1;transform: translateY(0);}
+}
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+@keyframes quoteEnter {
+    from { opacity: 0; transform: translateY(15px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes todoIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+@keyframes timeFloat {
+    from {transform: translateY(0);}
+    to {transform: translateY(6px);}
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.15);}
+    100% {transform: scale(1);}
+}

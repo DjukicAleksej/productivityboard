@@ -1,4 +1,4 @@
-const dynamicEl = document.querySelector("header h1");
+const dynamicEl = document.querySelector("#dynamic-word");
 const baseText = "Hello, ";
 let dynamicWords = ["Human" , "Scholar" , "Cool Person" , "Brochacho"];
 let wordIndex = 0;
@@ -11,10 +11,21 @@ function typeEffect(){
     if(!deleting){
         dynamicEl.textContent = currentWord.slice(0,charIndex+1);
         charIndex++;
+        if(charIndex === currentWord.length){
+            setTimeout(() => deleting = true,1000);
+        }
+    } else {
+        dynamicEl.textContent = currentWord.slice(0,charIndex-1);
+        charIndex--;
+        if(charIndex===0){
+        deleting=false;
+        wordIndex = (wordIndex + 1) % dynamicWords.length;
+        }
     }
+    setTimeout(typeEffect , deleting ? 80 : 150);
 }
 
-setInterval(changeGreeting,3000);
+typeEffect();
 
 
 //time

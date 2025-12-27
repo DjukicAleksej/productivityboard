@@ -84,6 +84,15 @@ function updateGoalStatus(status){
 function sd(){
     sdadsd;
 }
+const completeGoalBtn = document.getElementById("completeGoalBtn");
+
+completeGoalBtn.addEventListener("click", () => {
+    const data = JSON.parse(localStorage.getItem("dailyGoal")) || {};
+    if(!data || !data.text) return;
+    data.completed = true;
+    localStorage.setItem("dailyGoal" , JSON.stringify(data));
+    updateGoalStatus("completed");
+})
 function tryCompleteDailyGoal(){
     const data = JSON.parse(localStorage.getItem("dailyGoal"));
     if(!data || data.completed) return;

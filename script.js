@@ -1,15 +1,20 @@
-const greetingEl = document.querySelector("header h1");
+const dynamicEl = document.querySelector("header h1");
+const baseText = "Hello, ";
+let dynamicWords = ["Human" , "Scholar" , "Cool Person" , "Brochacho"];
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-let words = ["Human" , "Scholar" , "Cool Person" , "Brochacho"];
-let index = 0;
+function typeEffect(){
+    const currentWord = dynamicWords[wordIndex];
 
-function changeGreeting(){
-    const current = words[index];
-    const next = words[(index+1)% words.length];
-
-    let i = current.length;
-    
+    if(!deleting){
+        dynamicEl.textContent = currentWord.slice(0,charIndex+1);
+        charIndex++;
+    }
 }
+
+setInterval(changeGreeting,3000);
 
 
 //time

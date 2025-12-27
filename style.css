@@ -4,6 +4,15 @@
     --glass-bg: rgba(255,255,255,0.1);
     --glass-border: rgba(255,255,255,0.3);
 }
+#cursor{
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 0.7s step-end infinite;
+    color: #fff;
+}
+@keyframes blink {
+    50% {opacity: 0;}
+}
 body {
     background-color: var(--bg-color);
     color: var(--text-color);

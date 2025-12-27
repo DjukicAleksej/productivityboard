@@ -1,3 +1,9 @@
+const greetingEl = document.querySelector("header h1");
+
+let words = ["Human" , "Scholar" , "Cool Person" , "Brochacho"];
+let index = 0;
+
+
 //time
 function updateTime(){
     const timeEl = document.getElementById('time');

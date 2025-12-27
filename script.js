@@ -84,6 +84,13 @@ function updateGoalStatus(status){
 function sd(){
     sdadsd;
 }
+const themeToggleBtn = document.getElementById("themeToggleBtn");
+let currentTheme = localStorage.getItem("theme") || "dark";
+document.body.classList.toggle("light", currentTheme==="light");
+themeToggleBtn.addEventListener("click", () => {
+    const isLight = document.body.classList.toggle("light");
+    localStorage.setItem("theme",isLight ? "light" : "dark");
+});
 const completeGoalBtn = document.getElementById("completeGoalBtn");
 
 completeGoalBtn.addEventListener("click", () => {
